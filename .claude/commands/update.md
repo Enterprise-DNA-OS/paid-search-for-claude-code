@@ -1,3 +1,7 @@
+---
+description: "Read the account, then change its local owner, purpose or review dates."
+---
+
 # update
 
 Read the account, then change its local owner, purpose or review dates.

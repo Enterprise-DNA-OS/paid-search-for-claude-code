@@ -1,3 +1,7 @@
+---
+description: "Record the operator-supplied decision and its evidence."
+---
+
 # approve
 
 Record the operator-supplied decision and its evidence.

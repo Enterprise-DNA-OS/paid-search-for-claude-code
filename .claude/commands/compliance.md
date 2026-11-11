@@ -1,3 +1,7 @@
+---
+description: "Check access-review dates, retention-review dates, purpose and ownership."
+---
+
 # compliance
 
 Check access-review dates, retention-review dates, purpose and ownership.

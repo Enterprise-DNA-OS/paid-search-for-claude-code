@@ -1,3 +1,7 @@
+---
+description: "List the accounts and owners."
+---
+
 # accounts
 
 List the accounts and owners.

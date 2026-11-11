@@ -1,3 +1,7 @@
+---
+description: "Add the verified account, approved budget or proposed action the operator supplied."
+---
+
 # add
 
 Add the verified account, approved budget or proposed action the operator supplied.

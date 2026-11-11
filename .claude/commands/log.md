@@ -1,3 +1,7 @@
+---
+description: "Append the operator-supplied account note."
+---
+
 # log
 
 Append the operator-supplied account note.

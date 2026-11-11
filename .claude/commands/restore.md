@@ -1,3 +1,7 @@
+---
+description: "Restore a full backup into an empty migrated database."
+---
+
 # restore
 
 Restore a full backup into an empty migrated database.

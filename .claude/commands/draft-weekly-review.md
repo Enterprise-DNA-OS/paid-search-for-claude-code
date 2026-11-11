@@ -1,3 +1,7 @@
+---
+description: "Create the weekly decision paper in drafts."
+---
+
 # draft-weekly-review
 
 Create the weekly decision paper in drafts.

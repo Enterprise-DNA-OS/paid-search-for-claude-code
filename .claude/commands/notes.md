@@ -1,3 +1,7 @@
+---
+description: "Read the account notes."
+---
+
 # notes
 
 Read the account notes.

@@ -1,3 +1,7 @@
+---
+description: "Review straight-line spend projections against approved cycle budgets."
+---
+
 # budget-pacing
 
 Review straight-line spend projections against approved cycle budgets.

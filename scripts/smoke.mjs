@@ -30,6 +30,7 @@ try{
  const a=await resolve(db,'accounts','DEMO-SEARCH');eq((await resolve(db,'accounts',a.id.slice(0,8))).id,a.id);
  await fail(()=>resolve(db,'accounts','harbour'),/Ambiguous.*accounts:[\s\S]*DEMO-SEARCH[\s\S]*DEMO-SOCIAL/);
  await fail(()=>resolve(db,'accounts','missing'),/No accounts/);
+ await fail(()=>run(db,['approve','ACT-SEARCH'],{'dry-run':true,by:'Mia',evidence:'example'}),/Unknown field/);
  await fail(()=>run(db,['complete','ACT-SEARCH'],{evidence:'done'}),/Only approved/);
  await fail(()=>run(db,['approve','ACT-SEARCH'],{by:'Mia'}),/evidence/);
  eq((await run(db,['approve','ACT-SEARCH'],{by:'Mia',evidence:'Recorded test instruction'})).status,'approved');

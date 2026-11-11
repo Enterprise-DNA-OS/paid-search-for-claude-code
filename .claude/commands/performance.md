@@ -1,3 +1,7 @@
+---
+description: "Read the latest export window for each account."
+---
+
 # performance
 
 Read the latest export window for each account.

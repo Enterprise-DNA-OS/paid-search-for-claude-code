@@ -1,3 +1,7 @@
+---
+description: "Record evidence that an approved action was completed outside this desk."
+---
+
 # complete
 
 Record evidence that an approved action was completed outside this desk.

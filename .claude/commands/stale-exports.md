@@ -1,3 +1,7 @@
+---
+description: "Find accounts whose evidence is missing or more than two days old."
+---
+
 # stale-exports
 
 Find accounts whose evidence is missing or more than two days old.

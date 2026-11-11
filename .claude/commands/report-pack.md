@@ -1,3 +1,7 @@
+---
+description: "Read one account and its full performance, budget, action and note history."
+---
+
 # report-pack
 
 Read one account and its full performance, budget, action and note history.

@@ -1,3 +1,7 @@
+---
+description: "Prepare proposed changes for the owner to review."
+---
+
 # approval-queue
 
 Prepare proposed changes for the owner to review.

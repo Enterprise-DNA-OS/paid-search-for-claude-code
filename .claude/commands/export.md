@@ -1,3 +1,7 @@
+---
+description: "Write a full private backup to a new directory."
+---
+
 # export
 
 Write a full private backup to a new directory.

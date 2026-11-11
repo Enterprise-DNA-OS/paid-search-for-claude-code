@@ -1,3 +1,7 @@
+---
+description: "Reject a proposed action with the supplied reason."
+---
+
 # reject
 
 Reject a proposed action with the supplied reason.

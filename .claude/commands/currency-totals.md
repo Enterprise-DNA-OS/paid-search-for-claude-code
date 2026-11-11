@@ -1,3 +1,7 @@
+---
+description: "Total accounts only within the same currency and reporting window."
+---
+
 # currency-totals
 
 Total accounts only within the same currency and reporting window.

@@ -21,7 +21,7 @@ export const reads={
  'morning-review':'select * from attention order by kind,ref',
  notes:'select a.ref,n.author,n.body,n.created_at from notes n join accounts a on a.id=n.account_id order by n.created_at,n.id',
  audit:'select relation_name,record_id,operation,created_at,before_record,after_record from audit_events order by created_at desc,id limit 100',
- 'currency-totals':'select currency,period_start,period_end,count(*) accounts,sum(cost_cents) cost_cents,sum(conversions) conversions from latest_performance where period_end is not null group by currency,period_start,period_end order by currency,period_start,period_end',
+ 'currency-totals':'select currency,period_start,period_end,count(*) accounts,count(cost_cents) accounts_with_cost,count(conversions) accounts_with_conversions,sum(cost_cents) cost_cents,sum(conversions) conversions from latest_performance where period_end is not null group by currency,period_start,period_end order by currency,period_start,period_end',
  'missing-metrics':'select ref,name,period_start,period_end,cost_cents,conversions,conversion_value_cents from latest_performance where cost_cents is null or conversions is null or conversion_value_cents is null order by ref'
 };
 export const backupTables=['accounts','snapshots','budget_plans','actions','notes','audit_events'];

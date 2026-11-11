@@ -1,3 +1,7 @@
+---
+description: "Prepare Monday decisions from budget pacing, approval queue and overdue actions."
+---
+
 # weekly-review
 
 Prepare Monday decisions from budget pacing, approval queue and overdue actions.
