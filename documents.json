@@ -1,11 +1,52 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "account-review",
+    "title": "Account performance review draft",
+    "for_each": "select id,name from accounts order by ref",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Account and reporting scope",
+        "layout": "record",
+        "sql": "select name,platform,currency,owner from accounts where id=$1"
+      },
+      {
+        "title": "Latest exported performance",
+        "layout": "record",
+        "note": "One reporting window only. Missing metrics stay unknown. Confirm the conversion definition before interpreting results.",
+        "sql": "select period_start,period_end,currency,cost_cents,conversions,cpa_cents,roas,age_days from latest_performance where account_id=$1"
+      },
+      {
+        "title": "Approved budget review",
+        "sql": "select ref,currency,measured_through,budget_cents,cost_cents,projected_cents,review from budget_pacing where id in(select id from budget_plans where account_id=$1)"
+      },
+      {
+        "title": "Next work",
+        "sql": "select ref,title,owner,due_date,status from actions where account_id=$1 order by due_date"
+      },
+      {
+        "title": "Operator notes",
+        "sql": "select author,body,created_at from notes where account_id=$1 order by created_at"
+      }
+    ]
+  },
+  {
+    "name": "change-brief",
+    "title": "Campaign change brief draft",
+    "for_each": "select id,ref from actions order by ref",
+    "file": "ref",
+    "sections": [
+      {
+        "title": "Requested decision",
+        "layout": "record",
+        "note": "This document does not execute a campaign change or grant publishing permission.",
+        "sql": "select x.ref,a.name,a.currency,x.title,x.owner,x.due_date,x.proposed_change,x.rationale,x.status from actions x join accounts a on a.id=x.account_id where x.id=$1"
+      },
+      {
+        "title": "Decision evidence",
+        "layout": "record",
+        "sql": "select approved_by,approval_evidence,completion_evidence from actions where id=$1"
+      }
     ]
   }
 ]

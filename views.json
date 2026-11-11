@@ -1,13 +1,42 @@
 [
   {
-    "name": "week",
-    "title": "This week",
-    "subtitle": "Paid Search for Claude Code: what needs attention, rendered by npm run view",
+    "name": "morning",
+    "title": "Morning account review",
+    "subtitle": "Exported evidence. No campaign changes made.",
     "sections": [
       {
         "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "sql": "select * from attention order by kind,ref"
+      },
+      {
+        "title": "Data freshness",
+        "sql": "select ref,name,period_end,age_days from latest_performance order by ref"
+      }
+    ]
+  },
+  {
+    "name": "budgets",
+    "title": "Budget review",
+    "subtitle": "Straight-line projections from the exact cycle export. Currency is never combined.",
+    "sections": [
+      {
+        "title": "Cycle status",
+        "sql": "select ref,name,currency,measured_through,budget_cents,cost_cents,projected_cents,remaining_cents,review from budget_pacing order by ref"
+      }
+    ]
+  },
+  {
+    "name": "approvals",
+    "title": "Approval meeting",
+    "subtitle": "Local decisions only. Changes are applied separately in the advertising platform.",
+    "sections": [
+      {
+        "title": "Proposed changes",
+        "sql": "select ref,title,owner,due_date,proposed_change,rationale from actions where status='proposed' order by due_date"
+      },
+      {
+        "title": "Overdue follow-through",
+        "sql": "select * from overdue_actions order by due_date"
       }
     ]
   }
