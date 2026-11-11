@@ -64,7 +64,7 @@ For real records, choose a separate empty DATA_DIR and run `npm run migrate` wit
 - `/customise`: Add a field or change a local rule through a tested migration.
 - `/new-view`: Add a read-only report answering an operator's question.
 
-The CLI is `node scripts/paid-search.mjs`. Every route accepts --json. Exact references, partial IDs and case-insensitive names work; ambiguous names list the matches and exit one. `help` prints syntax. Monetary output ending in _cents is integer minor units in the stated account currency. CPA is cost divided by fractional conversions; a zero or unknown denominator produces unknown, not a fabricated ratio.
+The CLI is `node scripts/paid-search.mjs`. Every route accepts --json. Exact references, partial IDs and case-insensitive names work; ambiguous names list the matches and exit one. `help` prints syntax. JSON monetary fields ending in _cents use integer minor units. Human output shows decimal amounts in the stated account currency. CPA is cost divided by fractional conversions; a zero or unknown denominator produces unknown, not a fabricated ratio.
 
 ## Switch your working records in a day
 

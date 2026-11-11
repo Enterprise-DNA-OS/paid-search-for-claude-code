@@ -22,6 +22,8 @@ try{
  const initial=(await db.query('select count(*) n from audit_events'))[0].n;await seed(db);eq((await db.query('select count(*) n from audit_events'))[0].n,initial);
  for(const command of Object.keys(reads)){check(Array.isArray(await run(db,[command])),command);check(typeof display(await run(db,[command]))==='string');}
  eq((await run(db,['accounts'])).length,3);
+ check(display([{currency:'NZD',cost_cents:12345}]).includes('123.45'));
+ check(display([{cost_cents:null}]).includes('unknown'));
  const pacing=await run(db,['budget-pacing']);eq(Number(pacing.find(x=>x.ref==='PLAN-SEARCH').projected_cents),720000);eq(pacing.find(x=>x.ref==='PLAN-AU').review,'stale export');
  eq((await run(db,['zero-conversions'])).map(x=>x.ref),['DEMO-SOCIAL']);
  check((await run(db,['compliance'])).some(x=>x.rule==='ACCESS-REVIEW'));

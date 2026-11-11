@@ -140,7 +140,7 @@ export async function run(db,args,o={}){
  }
  throw Error(`Unknown command: ${cmd}`);
 }
-export function display(value){if(Array.isArray(value)){if(!value.length)return '(none)';const keys=Object.keys(value[0]);return textTable(value,keys.map(key=>({key,label:key,width:60,format:v=>v===null?'unknown':typeof v==='object'?JSON.stringify(v):String(v)})));}return JSON.stringify(value,null,2);}
+export function display(value){if(Array.isArray(value)){if(!value.length)return '(none)';const keys=Object.keys(value[0]);return textTable(value,keys.map(key=>({key,label:key.replace(/_cents$/, '').replaceAll('_',' '),width:60,format:v=>v===null?'unknown':key.endsWith('_cents')?(Number(v)/100).toFixed(2):typeof v==='object'?JSON.stringify(v):String(v)})));}return JSON.stringify(value,null,2);}
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
  let db;try{const args=[],o={};for(const token of process.argv.slice(2)){if(token.startsWith('--')){const at=token.indexOf('=');const k=token.slice(2,at<0?undefined:at);if(Object.hasOwn(o,k))throw Error(`Repeated option ${k}`);o[k]=at<0?true:token.slice(at+1);}else args.push(token);}
  const allowed=['json','data','by','evidence','text','file','platform','from','to','dry-run','map','dir'];fields(o,allowed);
